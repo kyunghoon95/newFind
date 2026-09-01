@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>hanaExchange styleguide</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<link rel="stylesheet" href="../../css/base.css">
+	<link rel="stylesheet" href="../../css/contents.css">
+
+	<script src="../../js/jquery-1.11.2.min.js"></script>
+	<script src="../../js/style.js"></script>
+
+	<style>
+		.stGuideH01 {margin:20px 0 0; font-size:28px; font-size:2.8rem; color:#fb7c0c;} /* 스타일 가이드 전용 head */
+	</style>
+</head>
+<body>
+<nav class="skip">
+	<ul>
+		<li><a href="#contents">본문 바로가기</a></li>
+	</ul>
+</nav>
+<div class="wrap">
+	<header class="header bg_white border_b_gray01">
+		<h1 class="header_txt fs18">header_txt</h1>
+		<a href="javascript:void(0);" class="btn_back">뒤로가기</a>
+		<a href="javascript:void(0);" class="btn_home">홈</a>
+		<button type="button" class="btn_gnb_menu" onclick="gnbMenu($(this));">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</button>
+	</header>
+
+	<!-- contents main 시작 -->
+	<main id="contents">
+		<div class="container01 p_b50">
+			<h2 class="stGuideH01">[container]</h2>
+			<div class="container01 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="container01", padding:0 25px;</div></div>
+			<div class="container02 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="container02", padding:0 32px;</div></div>
+			<div class="container03 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="container03", padding:0 34px;</div></div>
+			<div class="container04 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="container04", padding:0 20px;</div></div>
+			<div class="container05 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="container05", padding:10px 20px;</div></div>
+			
+			<h2 class="stGuideH01">[txt_container]</h2>
+			<div class="txt_container01 m_t10" style="background:#ddd; border:1px solid #000;"><div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="txt_container01", <br>padding:35px 17px 30px 20px; <br>border-radius:10px</div></div>
+			<div class="txt_container02 m_t10" style="background:#ddd; border:1px solid #000;">
+				<div class="txtC" style="width:100%; padding:10px 0; box-sizing:border-box; background:#fff;">class="txt_container02", <br>padding:30px 20px; <br>border-radius:10px;</div>
+				<strong class="dis_in_block txt_blue02 fs18 line_h144">txt_container02 박스안 title</strong>
+			</div>
+			
+			<h2 class="stGuideH01">[title]</h2>
+			<p class="sub_tit01">class="sub_tit01"->font-size:28</p>
+			<div class="sub_tit01">
+				<p class="txt01">class="txt01"(.sub_tit01 .txt01)</p>
+			</div>
+			<p class="sub_tit02">class="sub_tit02"->font-size:20</p>
+			
+
+			<h2 class="stGuideH01">[font size]</h2>
+			<p class="fs12">class="fs12"</p>
+			<p class="fs14">class="fs14"</p>
+			<p class="fs15">class="fs15"</p>
+			<p class="fs16">class="fs16"</p>
+			<p class="fs18">class="fs18"</p>
+			<p class="fs20">class="fs20"</p>
+			<p class="fs21">class="fs21"</p>
+			<p class="fs24">class="fs24"</p>
+			<p class="fs28">class="fs28"</p>
+			<p class="fs32">class="fs32"</p>
+			<p class="fs36">class="fs36"</p>
+			<p class="fs80" style="word-break:break-all;">class="fs80"</p>
+			<p class="fs82" style="word-break:break-all;">class="fs82"</p>
+
+			<h2 class="stGuideH01">[font-family]</h2>
+			<p class="ff_kotra">class="ff_kotra 코트라"</p>
+			<p class="ff_nuri">class="ff_nuri 누리"</p>
+			<p class="ff_spoqa">class="ff_spoqa 스포카"</p>
+
+			<h2 class="stGuideH01">[asterisk]</h2>
+			<p class="txt_asterisk line_h171 fs14 txt_gray03">class="txt_asterisk"</p>
+			<p class="txt_asterisk ico_grey02 fs15">class="txt_asterisk ico_grey02"</p>
+			
+			<h2 class="stGuideH01">[text-color]</h2>
+			<p class="txt_black01">class="txt_black01", color:#333;</p>
+			<p class="txt_black02">class="txt_black02", color:#000;</p>
+			<p class="txt_black03">class="txt_black03", color:#2e3040;</p>
+			<p class="txt_gray01">class="txt_gray01", color:#555;</p>
+			<p class="txt_gray02">class="txt_gray02", color:#ccc;</p>
+			<p class="txt_gray03">class="txt_gray03", color:#858585;</p>
+			<p class="txt_white" style="color:#333;">class="txt_white", color:#fff;</p>
+			<p class="txt_blue01">class="txt_blue01", color:#425fff;</p>
+			<p class="txt_blue02">class="txt_blue02", color:#0068ff;</p>
+			<p class="txt_blue03">class="txt_blue03", color:#5a87fa;</p>
+			<p class="txt_green01">class="txt_green01", color:#00a666;</p>
+			<p class="txt_green02">class="txt_green02", color:#72c0a2;</p>
+			<p class="txt_orange01">class="txt_orange01", color:#ffa10d;</p>
+			<p class="txt_orange02">class="txt_orange02", color:#ff6600;</p>
+
+			<h2 class="stGuideH01">[text line]</h2>
+			<p class="txt_underline">class="txt_underline"</p>
+			<p class="border_l_blue01 p_l20">class="border_l_blue01"</p>
+
+			<h2 class="stGuideH01">[background-color]</h2>
+			<ul>
+				<li><i class="bg_white" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_white", <span style="color:#333;">#fff;</span></li>
+				<li><i class="bg_gray01" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_gray01", <span style="color:#333;">#f6f6f6;</span></li>
+				<li><i class="bg_gray02" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_gray02", <span style="color:#333;">#e3e3e3;</span></li>
+				<li><i class="bg_yellow01" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_yellow01", <span style="color:#333;">#ffe400;</span></li>
+				<li><i class="bg_skyblue01" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_skyblue01", <span style="color:#333;">#00dee5;</span></li>
+				<li><i class="bg_green01" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_green01", <span style="color:#333;">#46bab4;</span></li>
+				<li><i class="bg_blue01" style="display:inline-block; width:10px; height:10px; border:1px solid #000;"></i> class="bg_blue01", <span style="color:#333;">#f2f7ff;</span></li>
+			</ul>
+
+			<h2 class="stGuideH01">[icon]</h2>
+			<i class="ico_smile01"></i>
+			<i class="ico_smile02"></i>
+			<i class="ico_smile03"></i>
+			<i class="ico_emoticon01"></i>
+			<i class="ico_handwave01"></i>
+			<i class="ico_handwave02"></i>
+			<i class="ico_bank01"></i>
+			<i class="ico_money01"></i>
+			<i class="ico_money02"></i>
+			<i class="ico_arrow_diagonal"></i>
+			<i class="ico_person01"></i>
+			<i class="ico_person02"></i>
+			<i class="ico_person03"></i>
+			<i class="ico_phone01"></i>
+			<i class="ico_clock"></i>
+			<i class="ico_soon"></i>
+			<i class="ico_eyes01"></i>
+			<i class="ico_party01"></i>
+			<i class="ico_youtube01"></i>
+			<i class="ico_check01"></i>
+			<i class="ico_check02"></i>
+			<i class="ico_number01"></i>
+			<i class="ico_number02"></i>
+			<i class="ico_number03"></i>
+			<i class="ico_number04"></i>
+			<i class="ico_number05"></i>
+			<i class="ico_number06"></i>
+			<i class="ico_card01"></i>
+			<i class="ico_paper01"></i>
+			<i class="ico_pin01"></i>
+			<i class="ico_graph01"></i>
+			<i class="ico_graph02"></i>
+			<i class="ico_present01"></i>
+			<i class="ico_genie01"></i>
+			<i class="ico_music01"></i>
+			<i class="ico_trip01"></i>
+			<i class="ico_bulb"></i>
+			<i class="ico_remit"></i>
+			<i class="ico_scale01"></i>
+			<i class="ico_honey01"></i>
+			<i class="ico_weather01"></i>
+			<i class="ico_weather02"></i>
+			<i class="ico_smile04"></i>
+			<i class="ico_cry01"></i>
+			<i class="ico_arrow_right01"></i>
+
+			<h2 class="stGuideH01">[line]</h2>
+			<p class="fs14">class="line01", background-color:#e3e3e3;</p>
+			<hr class="line01">
+
+			<h2 class="stGuideH01">[table]</h2>
+			<table class="table01 txt_l m_t10">
+				<caption>table01</caption>
+				<colgroup>
+					<col style="width:72px">
+					<col>
+					<col style="width:116px;">
+				</colgroup>
+				<thead>
+					<tr>			
+						<th></th>
+						<th scope="col">송금</th>
+						<th scope="col">계좌 송금</th>
+					</tr>			
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">송금<br>수수료</th>
+						<td>class="table01"</td>
+						<td>5,000원<br>(이벤트수수료)</td>
+					</tr>
+					<tr>
+						<th scope="row">연간한도<br><span class="txt_fs10">(USD 기준)</span></th>
+						<td>1일 1회<br>10,000달러(USD)</td>
+						<td>1일 1회<br>5,000~100,000<br>달러(USD)</td>
+					</tr>
+					<tr>
+						<th scope="row">추천상황</th>
+						<td>
+							<ul class="middle_dot_list">
+								<li>갑자기 송금을 보내야 할 때</li>
+								<li>은행정보가 없을때</li>
+								<li>수수료가 저렴한 송금을 원할 때</li>
+							</ul>
+						</td>
+						<td>
+							<ul class="middle_dot_list">
+								<li>은행정보가 있을 때</li>
+								<li>큰 금액을 송금해야 할 때</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>	
+			</table>
+
+			<table class="table02 m_t20 txt_c">
+				<caption>table02</caption>
+				<colgroup>
+					<col>
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" colspan="2" class="txt_blue02">class="table02"</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="fw_medium txt_fs16">$5,000이하</td>
+						<td class="fw_medium txt_fs16 txt_blue02">$5,000초과</td>
+					</tr>
+					<tr>
+						<td class="bor_r">건당 3,000원</td>
+						<td class="txt_blue02">건당 5,000원</td>
+					</tr>
+				</tbody>
+			</table>
+			<h2 class="stGuideH01">[accordion]</h2>
+			<ul class="acco_type01">
+				<li>
+					<p class="fs16 txt_black02 fw_medium acco_tit line_h150" onclick="accoAction(this)"><i class="ico_question"></i>class="acco_type01"</p>
+					<div class="acco_cont fs16 p_l38 p_t10 on">
+						<p class="line_h163 txt01">내용</p>
+					</div>
+				</li>
+				<li>
+					<p class="fs16 txt_black02 fw_medium acco_tit line_h150" onclick="accoAction(this)"><i class="ico_open"></i>class="acco_type01"</p>
+					<div class="acco_cont fs16 p_l38 p_t10 on">
+						<p class="line_h163 txt01">내용</p>
+					</div>
+				</li>
+			</ul>
+			<h2 class="stGuideH01">[list]</h2>
+			<ul class="m_t16 middle_dot_list fs15 txt_black02 line_h147">
+				<li>class="middle_dot_list"</li>
+			</ul>
+			<ul class="m_t16 middle_dot_list middle_dot_blue fs15 txt_black02 line_h147">
+				<li><span class="txt_blue02">class="middle_dot_list middle_dot_blue"</span></li>
+			</ul>
+			<ul class="m_t10 middle_dot_list middle_dot_gray01 fs14 line_h171">
+				<li>class="middle_dot_gray01"</li>
+			</ul>
+			
+
+			<ul class="middle_dot_list middle_dot_blue type02 fs16 m_t20">
+				<li>
+					<p class="txt_blue02 line_h150 txt01 fw_medium">class="middle_dot_list middle_dot_blue type02" -> margin-top:20px</p>
+				</li>
+			</ul>
+
+			<ol class="m_t10 ol_list01">
+				<li><span class="ol_list01_num">1</span>class="ol_list01"
+					<ul class="m_t10 middle_dot_list fs14 txt_black02 line_h147">
+						<li>class="middle_dot_list"</li>
+					</ul>
+				</li>
+			</ol>
+
+			<ol class="ol_list01 type02 fs15 m_t10">
+				<li>
+					<span class="txt_black02 line_h147"><span class="ol_list01_num">1.</span>class="ol_list01 type02"</span>
+					<span class="dis_block m_t10 fs14">예) 하나은행 영문명 : KEB Hana Bank</span>
+				</li>
+			</ol>
+			
+			<h2 class="stGuideH01">[tag_tooltip]</h2><br>
+			<ul class="tag_tooltip01">
+				<li onclick="tagAction(this)"><a href="javascript:void(0)" class="btn_tag">class="tag_tooltip01"</a></li>
+				<li onclick="tagAction(this)"><a href="javascript:void(0)" class="btn_tag"># 환전</a></li>
+			</ul>
+			<div class="m_t40">
+				<span class="tip_box01 bg_blue02">class="tip_box01"</span>
+			</div>
+		</div>
+	</main>
+	
+</div><!-- //wrap div end -->
+</body>
+</html>

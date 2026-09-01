@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>WEB PUBLISHING GUIDE</title>
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+	<style type="text/css">
+		body {
+			padding: 0;
+			margin: 0;
+			font-size: 0.75em;
+			font-family: dotum, "돋움";
+			color: #333333;
+		}
+
+		#header {
+			overflow: hidden;
+			padding: 15px 15px 30px;
+		}
+
+		#header h1 {
+			float: left;
+			padding: 0;
+			margin: 0;
+			font-size: 2.5em;
+			color: #666666;
+			font-family: Arial;
+		}
+
+		#header .logo {
+			float: right;
+			padding: 0;
+			margin: 0;
+		}
+		.depth1_all_chk_w {padding:5px 10px;}
+		.depth1_all_chk_w label {padding:5px 10px;}
+		.depth1_all_chk_w .txt {font-size:13px; vertical-align:middle;}
+		.depth1_all_chk {margin:0 5px 0 0; vertical-align:middle;}
+
+		.depth1_list {
+			display: inline-block;
+			white-space: nowrap;
+			padding: 5px 10px;
+			margin: 0;
+			list-style: none;
+		}
+
+		.depth1_list li {
+			display: inline-block;
+			padding: 0;
+			margin: 0;
+			border-left:1px solid #ddd;
+			background:#f4f4f4;
+		}
+		.depth1_list li:first-child {border-left:0;}
+		.depth1_list li label {display:block; padding:15px 10px;}
+		.depth1_list li input[type="checkbox"] {margin:0 5px 0 0; vertical-align:middle;}
+		.depth1_list li .txt {font-size:13px; font-weight:bold; vertical-align:middle;}
+
+		.stepInfo {
+			clear: both;
+			padding: 0;
+			margin: 5px 0;
+			text-align: right;
+		}
+
+		.stepInfo li {
+			display: inline;
+			margin-right: 10px;
+			font-size: 0.9em;
+		}
+
+		.stepInfo li span {
+			display: inline-block;
+			width: 35px;
+			height: 13px;
+			margin-right: 3px;
+			vertical-align: top;
+		}
+
+		.listTbl {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			border: 0;
+			border-bottom: 1px solid #e7e7e7;
+			border-collapse: collapse;
+		}
+		.listTbl caption {height:0; opacity:0; visibility:hidden;}
+
+		.listTbl thead th {
+			height: 26px;
+			font-weight: normal;
+			border: 1px solid #666666;
+			white-space: nowrap;
+		}
+		.listTbl tbody {border-bottom:1px solid #666;}
+		.listTbl tbody th {
+			height: 24px;
+			padding: 0 10px;
+			text-align: left;
+			border: 1px solid #e7e7e7;
+			background: #eeeeee;
+		}
+
+		.listTbl tbody td {
+			height: 24px;
+			padding: 0 10px;
+			border-top: 1px solid #e7e7e7;
+			border-left: 1px solid #e7e7e7;
+			color: #666666
+		}
+
+		.listTbl tbody tr:first-child td {border-top:0;}
+
+		.listTbl .bgNum {background:#f2effc;}
+
+		.listTbl th.depth1 {
+			background: #fceff7;
+			border-left: 0;
+		}
+
+		.listTbl td.depth1 {
+			white-space: nowrap;
+			text-align: left;
+			background: #fceff7;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl th.depth2 {
+			background: #f2fcef;
+		}
+
+		.listTbl td.depth2 {
+			white-space: nowrap;
+			text-align: left;
+			background: #f2fcef;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl th.depth3 {
+			background: #efeffc;
+		}
+
+		.listTbl td.depth3 {
+			white-space: nowrap;
+			text-align: left;
+			background: #efeffc;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl th.depth4 {
+			background: #fcfcef;
+		}
+
+		.listTbl td.depth4 {
+			white-space: nowrap;
+			text-align: left;
+			background: #fcfcef;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl th.depth5 {
+			background:#fff6ec;
+		}
+
+		.listTbl td.depth5 {
+			white-space: nowrap;
+			text-align: left;
+			background: #fff6ec;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl th.popup {
+			background: #effafc;
+		}
+
+		.listTbl td.popup {
+			white-space: nowrap;
+			text-align: left;
+			background: #effafc;
+			border-top-color: #e7e7e7;
+		}
+
+		.listTbl td.link {
+			text-align: center;
+		}
+
+		.listTbl td.link a {
+			white-space: nowrap;
+		}
+
+		.listTbl td.psd,
+		.listTbl td.endHtml,
+		.listTbl td.check1,
+		.listTbl td.check2,
+		.listTbl td.end,
+		.listTbl td.name {
+			text-align: center;
+			white-space: nowrap;
+		}
+
+		.listTbl th.name,
+		.listTbl th.last,
+		.listTbl td.name {
+			border-right: 0 !important;
+		}
+
+		.listTbl tr:hover td {
+			background: #548bcc !important;
+			color: #ffffff;
+		}
+
+		.step1,
+		.listTbl tr td.step1 {
+			background: #999999 !important;
+			color: #ffffff !important;
+		}
+
+		.step2,
+		.listTbl tr td.step2 {
+			background: #000000 !important;
+			color: #ffffff !important;
+		}
+
+		#footer {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		}
+
+		#footer .goTop {
+			text-align: right;
+		}
+
+		#footer .goTop a {
+			display: inline-block;
+			padding: 1px 3px;
+			text-decoration: none;
+			background: #666666;
+			color: #fff;
+		}
+
+		#footer .footBg {
+			overflow: hidden;
+			padding: 10px 0 10px 10px;
+			background: #eeeeee;
+			border-top: 1px solid #666666;
+		}
+
+		#footer .progress,
+		#footer .nameList {
+			padding: 5px 0 0;
+			margin: 0;
+		}
+
+		#footer .progress li,
+		#footer .nameList li {
+			display: inline;
+			padding: 0;
+			margin: 0 10px 0 0;
+			color: blue;
+		}
+
+		#footer .nameList {
+			display: block;
+		}
+
+		#footer .tempMenu {
+			float: right;
+			white-space: nowrap;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		#footer .tempMenu li {
+			display: inline;
+			padding: 0;
+			margin: 0 10px;
+		}
+
+		#footer .info {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		#container {
+			padding-bottom: 150px;
+		}
+
+		.ajax,
+		.listTbl tr.ajax td {
+			background: yellow;
+		}
+
+		ol {padding:0 0 0 20px; margin:10px 0;}
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			$('.listTbl .listNum').each(function(i, e){ /* list에 number 값 추가 */
+				$(e).text(i + 1);
+			});
+
+			var total = $($('.depth2')).length - 1; /* 총 갯수 */
+			$('.numTotal .tat').append(total);
+
+			var psd = $($('.psd span:contains(O)')).length; /* psd 완료 */
+			$('.numPsd span').append(psd);
+
+			var endHtml = $($('.endHtml.step2')).length; /* html 완료 */
+			$('.numHtml span').append(endHtml);
+
+			var aa = endHtml
+			$('.numTotal .end').append(aa);
+
+			var end = $($('.end.step2')).length; /* 완료 */
+			$('.numEnd span').append(end);
+
+			$('.total2 span.t2').append(total);
+
+			$('.total2 span.t3').append(endHtml);
+
+			var tbodyLength = $('.listTbl tbody').length;
+			for(var i = 0; i < tbodyLength; i++){
+				var appendList = '';
+				appendList += '<li><label for="chkTbody' + i + '">';
+				appendList += '<input type="checkbox" id="chkTbody' + i + '" data-list-index="' + i + '" checked>';
+				appendList += '<span class="txt">' + $('.listTbl tbody').eq(i).find('tr:first-child .depth1').text() + '<small>(' + $('.listTbl tbody').eq(i).find('tr').length + ')</small></span>';
+				appendList += '</label></li>';
+				$('.depth1_list').append(appendList);
+			}
+
+			$('#chkAllShow').on('click', function(){ // 전체보기
+				$('.depth1_list input[type="checkbox"]').prop('checked', $(this).prop('checked')).trigger('change');
+			});
+			$('.depth1_all_chk_w .totalNum').text('(' + $('.listTbl .listNum').length + ')');
+
+			$('.depth1_list').on('click', 'input[type="checkbox"]',function(){ // table tbody list checkbox
+				if($('.depth1_list input[type="checkbox"]').length == $('.depth1_list input[type="checkbox"]:checked').length){
+					$('#chkAllShow').prop('checked', true);
+				} else {
+					$('#chkAllShow').prop('checked', false);
+				}
+			}).on('change', 'input[type="checkbox"]',function(){
+				if($(this).prop('checked')){
+					$('.listTbl tbody').eq($(this).parents('li').index()).show();
+				} else {
+					$('.listTbl tbody').eq($(this).parents('li').index()).hide();
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<!-- footer -->
+	<div id="footer">
+		<div class="goTop"><a href="#header">Top</a></div>
+		<div class="footBg">
+			<ul class="tempMenu">
+				<!-- <li><a href="../html/temp/layout.html" target="_blank">LAYOUT</a></li> -->
+				<li><a href="../html/temp/styleGuide.html" target="_blank">styleGuide</a></li>
+				<!-- <li><a href="/ui2/ath00302m0_test.html" target="_blank">ath00302m0_test.html</a></li> -->
+				<!-- <li><a href="popLayout.html" target="_blank">POPUP_LAYOUT</a></li> -->
+				<!-- li><a href="/ui/htmlTemp/btn.html" target="_blank">BUTTON</a></li>
+			<li><a href="/ui/htmlTemp/table.html" target="_blank">TABLE</a></li>
+			<li><a href="/ui/htmlTemp/list.html" target="_blank">LIST</a></li>
+			<li><a href="/ui/htmlTemp/contents.html" target="_blank">CONTENTS</a></li -->
+			</ul>
+			<ul class="info">
+				<li>프로젝트명: 하나은행  - 외환의 발견</li>
+				<li>인코딩: utf-8</li>
+			</ul>
+			<ul class="progress">
+				<li class="numPsd">PSD:<span></span></li>
+				<li class="numHtml">HTML:<span></span></li>
+				<li class="numTotal">total:<span class="tat" style="color:red;"></span>페이지 중 <span class="end" style="color:red;"></span>페이지 완료</li>
+			</ul>
+			<ul class="nameList">
+				<li class="total2">합계:<span class="t3"></span>/<span class="t2"></span></li>
+			</ul>
+		</div>
+	</div>
+	<!-- //footer -->
+	<div id="wrap">
+		<!-- header -->
+		<div id="header">
+			<h1>WEB PUBLISHING GUIDE - 하나은행 외환의 발견</h1>
+			<p class="logo"><img src="logo.jpg" alt="" /></p>
+		</div>
+		<!-- //header -->
+
+		<!-- container -->
+		<div id="container">
+			<div class="depth1_list_w">
+				<div class="depth1_all_chk_w">
+					<label for="chkAllShow">
+						<input type="checkbox" id="chkAllShow" class="depth1_all_chk" checked>
+						<span class="txt">전체보기 <small class="totalNum"></small></span>
+					</label>
+				</div>
+
+				<ul class="depth1_list"><!-- tbody list 자동 삽입(첫번째 tr .depth1에 텍스트값 가져옴) -->
+				</ul>
+			</div>
+			<ul class="stepInfo">
+				<li><span class="step1"></span>진행중</li>
+				<li><span class="step2"></span>완료</li>
+			</ul>
+			<table class="listTbl">
+				<caption>코딩 파일 리스트입니다.</caption>
+				<colgroup>
+					<col style="width:40px">
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col style="width:40px">
+					<col style="width:40px">
+					<col style="width:40px">
+					<col style="width:50px">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" class="bgNum">num</th>
+						<th scope="col" class="depth1">1DEPTH</th>
+						<th scope="col" class="depth2">2DEPTH</th>
+						<th scope="col" class="depth3">3DEPTH</th>
+						<th scope="col" class="depth4">4DEPTH</th>
+						<th scope="col" class="depth5">5DEPTH</th>
+						<th scope="col" class="popup">Popup</th>
+						<th scope="col">비고</th>
+						<th scope="col">화면ID(링크)</th>
+						<th scope="col">PSD</th>
+						<th scope="col">HTML</th>
+						<th scope="col">완료</th>
+						<th scope="col" class="name">담당자</th>
+					</tr>
+					<tbody>
+						<!-- <tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1">스플래시 랜딩</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-RD-01.html" target="_blank">IFC-RD-01</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step0"></td>
+							<td class="name"><span></span></td>
+						</tr> -->
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1">메인화면</td>
+							<td class="depth2"></td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-MA-01.html" target="_blank">IFC-MA-01</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+					</tbody>
+					<tbody>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1">상세화면</td>
+							<td class="depth2">일반형 1번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-04.html" target="_blank">IFC-NM-04</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 2번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-05.html" target="_blank">IFC-NM-05</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 3번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-06.html" target="_blank">IFC-NM-06</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 4번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-07.html" target="_blank">IFC-NM-07</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 5번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-08.html" target="_blank">IFC-NM-08</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 6번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-09.html" target="_blank">IFC-NM-09</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 7번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-10.html" target="_blank">IFC-NM-10</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 8번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-11.html" target="_blank">IFC-NM-11</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 9번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-12.html" target="_blank">IFC-NM-12</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 10번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-13.html" target="_blank">IFC-NM-13</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">일반형 11번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-NM-14.html" target="_blank">IFC-NM-14</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">웹툰형 1번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-WT-01.html" target="_blank">IFC-WT-01</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">웹툰형 2번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-WT-02.html" target="_blank">IFC-WT-02</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+						<tr>
+							<td class="listNum bgNum"></td>
+							<td class="depth1"></td>
+							<td class="depth2">웹툰형 3번</td>
+							<td class="depth3"></td>
+							<td class="depth4"></td>
+							<td class="depth5"></td>
+							<td class="popup"></td>
+							<td></td>
+							<td class="link"><a href="../html/page/IFC-WT-03.html" target="_blank">IFC-WT-03</a></td>
+							<td class="psd"><span>O</span></td>
+							<td class="endHtml"></td>
+							<td class="end step2">21.11.26</td>
+							<td class="name"><span></span></td>
+						</tr>
+					</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
